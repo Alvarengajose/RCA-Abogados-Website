@@ -849,7 +849,208 @@
                 height: 35px;
             }
         }
-    </style>
+    
+.hero-carousel {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-carousel .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.hero-carousel .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.hero-carousel .overlay {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+}
+.hero-carousel h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.hero-carousel p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.hero-carousel .btn {
+  display: inline-block;
+  background-color: var(--gold);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1rem;
+}
+
+
+header {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.hero-carousel .overlay h1,
+.hero-carousel .overlay p {
+  transition: opacity 1s ease;
+}
+
+.hero-carousel .overlay .phase {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  display: block;
+  width: 100%;
+}
+
+.hero-carousel .overlay .phase.active {
+  opacity: 1;
+  position: relative;
+  transform: translateY(0);
+}
+
+.hero-carousel .highlight {
+  color: #C5A059; /* Estilo Quinn Emanuel */
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+
+.hero-carousel .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.hero-carousel .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-carousel h1,
+.hero-carousel .highlight {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.hero-carousel p {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.hero-carousel .overlay .phase {
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  display: block;
+  width: 100%;
+}
+
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+.hero-carousel .overlay {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-carousel .phase h1,
+.hero-carousel .phase p {
+  animation: fadeUp 1.2s ease forwards;
+}
+
+.hero-carousel .phase.fade-out h1,
+.hero-carousel .phase.fade-out p {
+  animation: fadeDown 1s ease forwards;
+}
+
+.hero-carousel .highlight,
+.hero-carousel .phase h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.hero-carousel .phase p {
+  font-size: 1.6rem;
+  max-width: 900px;
+  line-height: 1.4;
+  color: white;
+}
+
+
+.hero-carousel .phase p,
+.hero-carousel .overlay p {
+  font-size: 1.6rem;
+  max-width: 900px;
+  line-height: 1.4;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.hero-carousel .overlay .offset-up {
+  margin-top: -210px;
+}
+
+</style>
 </head>
 <body>
 <!-- Header y Navegación -->
@@ -874,15 +1075,50 @@
 <!-- Sección Hero -->
 
 
-<section class="hero" id="inicio" style="position: relative; overflow: hidden;">
-  <video autoplay muted loop playsinline style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
-    <source src="https://cdn.coverr.co/videos/coverr-working-on-macbook-6234/1080p.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
-  </video>
-  <div class="hero-content">
-    <h1>Excelencia Legal en Litigios Financieros</h1>
-    <p>Protegiendo sus activos y defendiendo sus intereses con estrategias legales avanzadas y soluciones financieras innovadoras.</p>
-    <a class="btn" href="#contacto">Consúltanos</a>
+<section class="hero-carousel" id="inicio">
+  <div class="slide active" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');">
+    <div class="overlay">
+      
+<div class="phase phase2 active">
+  <h1 class="highlight">Excelencia Legal en Litigios Financieros</h1>
+  <p class="centered-text">Protegiendo sus activos y defendiendo sus intereses con estrategias legales avanzadas y soluciones financieras innovadoras.</p>
+</div>
+
+<div class="phase phase1 offset-up">
+  <h1 class="highlight">Ciudad de México</h1>
+  <p>Torre Reforma, Piso 22 – Litigios Financieros</p>
+</div>
+
+      
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');">
+    <div class="overlay">
+      <h1 class="highlight">Cancún</h1>
+      <p>Derecho Turístico – Zona Hotelera</p>
+      
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');">
+    <div class="overlay">
+      <h1 class="highlight">Monterrey</h1>
+      <p>Derecho Corporativo – Valle Oriente</p>
+      
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');">
+    <div class="overlay">
+      <h1 class="highlight">Guadalajara</h1>
+      <p>Fintech y Startups – Puerta de Hierro</p>
+      
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=2070&auto=format&fit=crop');">
+    <div class="overlay">
+      <h1 class="highlight">Madrid</h1>
+      <p>Consultoría Internacional – Paseo de la Castellana</p>
+      
+    </div>
   </div>
 </section>
 
@@ -911,89 +1147,6 @@
 </div>
 </div>
 </section>
-<!-- Sección Sedes Internacionales -->
-<section class="sedes" id="sedes">
-<div class="section-title">
-<h2>Nuestras Sedes</h2>
-<p>Presencia global con oficinas estratégicamente ubicadas</p>
-</div>
-<div class="sedes-container">
-<div class="carousel-nav">
-<button aria-label="Anterior" class="carousel-prev">❮</button>
-<button aria-label="Siguiente" class="carousel-next">❯</button>
-</div>
-<div class="sedes-grid">
-<div class="sede-card">
-<div aria-label="Ciudad de México" class="sede-image" role="img" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');"></div>
-<div class="sede-overlay">
-<h3>Ciudad de México</h3>
-<div class="sede-info">
-<p>Torre Reforma, Piso 22</p>
-<p>Horario: 9:00 - 18:00</p>
-</div>
-</div>
-</div>
-<div class="sede-card">
-<div aria-label="Cancún" class="sede-image" role="img" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');"></div>
-<div class="sede-overlay">
-<h3>Cancún</h3>
-<div class="sede-info">
-<p>Zona Hotelera, Edificio Marina</p>
-<p>Especializados en derecho turístico</p>
-</div>
-</div>
-</div>
-<div class="sede-card">
-<div aria-label="Monterrey" class="sede-image" role="img" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');"></div>
-<div class="sede-overlay">
-<h3>Monterrey</h3>
-<div class="sede-info">
-<p>Centro empresarial Valle Oriente</p>
-<p>Enfoque en derecho corporativo</p>
-</div>
-</div>
-</div>
-<div class="sede-card">
-<div aria-label="Guadalajara" class="sede-image" role="img" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');"></div>
-<div class="sede-overlay">
-<h3>Guadalajara</h3>
-<div class="sede-info">
-<p>Centro Financiero Puerta de Hierro</p>
-<p>Especialistas en fintech y startups</p>
-</div>
-</div>
-</div>
-<div class="sede-card">
-<div aria-label="Madrid, España" class="sede-image" role="img" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&amp;w=2070&amp;auto=format&amp;fit=crop');"></div>
-<div class="sede-overlay">
-<h3>Madrid, España</h3>
-<div class="sede-info">
-<p>Paseo de la Castellana, 200</p>
-<p>Consultoría internacional</p>
-</div>
-</div>
-</div>
-<!-- Duplicamos las tarjetas para efecto de bucle infinito -->
-<div class="sede-card">
-<div aria-label="Ciudad de México" class="sede-image" role="img" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');"></div>
-<div class="sede-overlay">
-<h3>Ciudad de México</h3>
-<div class="sede-info">
-<p>Torre Reforma, Piso 22</p>
-<p>Horario: 9:00 - 18:00</p>
-</div>
-</div>
-</div>
-</div>
-<div class="carousel-indicators">
-<div class="indicator active" data-index="0"></div>
-<div class="indicator" data-index="1"></div>
-<div class="indicator" data-index="2"></div>
-<div class="indicator" data-index="3"></div>
-<div class="indicator" data-index="4"></div>
-</div>
-</div>
-</section>
 <!-- Sección Sobre Nosotros -->
 <section class="about" id="nosotros">
 <div class="about-content">
@@ -1001,7 +1154,7 @@
 <p>En RCA Abogados, combinamos experiencia legal con un profundo conocimiento del sector financiero para ofrecer soluciones innovadoras y efectivas.</p>
 <p>Fundado en 2005, nuestro bufete ha crecido hasta convertirse en un referente en derecho financiero, ayudando a clientes nacionales e internacionales a navegar por complejas situaciones legales.</p>
 <p>Nuestro equipo de abogados altamente especializados cuenta con décadas de experiencia combinada en litigios financieros, regulación bancaria y derecho corporativo.</p>
-<a class="btn" href="#contacto">Conoce a nuestro equipo</a>
+
 </div>
 <div aria-label="Equipo de RCA Abogados trabajando" class="about-image" role="img" style="background-image: url('https://i.imgur.com/4LV40CE.png'); background-size: contain; background-repeat: no-repeat; background-position: center; border-radius: 10px; height: 500px;"></div>
 <div class="about-content">
@@ -1305,5 +1458,67 @@
                 });
             }
         });
-    </script></body>
+    </script>
+
+
+
+
+
+
+<script>
+  const header = document.querySelector("header");
+  let lastScroll = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll <= 10) {
+      header.classList.remove("visible");
+      return;
+    }
+
+    if (currentScroll > lastScroll) {
+      // Scroll hacia abajo
+      header.classList.add("visible");
+    } else {
+      // Scroll hacia arriba
+      header.classList.remove("visible");
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
+
+
+
+
+
+<script>
+  const slides = document.querySelectorAll('.hero-carousel .slide');
+  let currentSlide = 0;
+  let firstSlidePhase = 1;
+
+  function showNextSlide() {
+    slides[currentSlide].classList.remove('active');
+
+    if (currentSlide === 0 && firstSlidePhase === 1) {
+      document.querySelector('.phase2').classList.remove('active');
+      document.querySelector('.phase1').classList.add('active');
+      firstSlidePhase = 2;
+      slides[currentSlide].classList.add('active');
+    } else {
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+      if (currentSlide === 0) {
+        document.querySelector('.phase2').classList.add('active');
+        document.querySelector('.phase1').classList.remove('active');
+        firstSlidePhase = 1;
+      }
+    }
+  }
+
+  setInterval(showNextSlide, 4000);
+</script>
+
+</body>
 </html>
