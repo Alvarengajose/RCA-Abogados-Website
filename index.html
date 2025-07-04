@@ -361,7 +361,7 @@
         .about h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--navy);
+            color: brown;
             margin-bottom: 20px;
         }
         
@@ -1682,7 +1682,7 @@ section {
   <!-- Sección Hero -->
   <section class="hero-video-bg">
    <video autoplay="" class="video-bg" loop="" muted="" playsinline="">
-    <source src="https://videos.pexels.com/video-files/15809008/15809008-hd_1920_1080_30fps.mp4" type="video/mp4"/>
+    <source src="https://i.imgur.com/E95dkk1.mp4" type="video/mp4"/>
     Tu navegador no soporta video HTML5.
    </video>
    <div class="hero-overlay">
@@ -1701,6 +1701,19 @@ section {
   </section>
   <!-- Sección Servicios -->
   <section class="services-grid-quinn" id="servicios">
+    <section class="about semblanza">
+    <div class="about-content">
+     <h2>
+      25 Años de Experiencia
+     </h2>
+     <p>
+      RCA conmemora su 25 aniversario prestando servicios con resultados eficaces y altos estándares de calidad. La Firma se ha especializado en áreas clave del derecho como financiero, inmobiliario, transporte, energía, alimentos, automotriz y más. Se distingue por crear soluciones vanguardistas e integrales con un fuerte compromiso ético y social.
+     </p>
+     <p>
+      “Durante los 25 años de experiencia, en diversas ocasiones hemos representado a empresas en asuntos relevantes. Con nuestro equipo, hoy más que nunca estamos capacitados para tomar estos casos con responsabilidad y excelencia”, precisó el Dr. Julio César Rojas de la Cruz, Socio Director.
+     </p>
+    </div>
+   </section>
    <div class="section-title">
     <h2>
      Nuestros Servicios
@@ -1898,19 +1911,6 @@ section {
      </p>
     </div>
    </section>
-   <section class="about semblanza">
-    <div class="about-content">
-     <h2>
-      25 Años de Experiencia
-     </h2>
-     <p>
-      RCA conmemora su 25 aniversario prestando servicios con resultados eficaces y altos estándares de calidad. La Firma se ha especializado en áreas clave del derecho como financiero, inmobiliario, transporte, energía, alimentos, automotriz y más. Se distingue por crear soluciones vanguardistas e integrales con un fuerte compromiso ético y social.
-     </p>
-     <p>
-      “Durante los 25 años de experiencia, en diversas ocasiones hemos representado a empresas en asuntos relevantes. Con nuestro equipo, hoy más que nunca estamos capacitados para tomar estos casos con responsabilidad y excelencia”, precisó el Dr. Julio César Rojas de la Cruz, Socio Director.
-     </p>
-    </div>
-   </section>
   </section>
   <!-- Sección Testimonios -->
   <section class="testimonials" id="testimonios">
@@ -2034,6 +2034,72 @@ section {
     </div>
    </div>
   </section>
+  <!-- 🔻 CARRUSEL DE SEDES 🔻 -->
+<section class="sedes" id="sedes">
+  <div class="section-title">
+    <h2>Nuestras Sedes</h2>
+    <p>Presencia global con oficinas estratégicamente ubicadas</p>
+  </div>
+  <div class="sedes-container">
+    <div class="carousel-nav">
+      <button aria-label="Anterior" class="carousel-prev">❮</button>
+      <button aria-label="Siguiente" class="carousel-next">❯</button>
+    </div>
+    <div class="sedes-grid">
+      <!-- 🏙️ Tarjetas duplicadas para loop infinito -->
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');"></div>
+        <div class="sede-overlay">
+          <h3>Cancun</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');"></div>
+        <div class="sede-overlay">
+          <h3>Monterrey</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');"></div>
+        <div class="sede-overlay">
+          <h3>Ciudad de México</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');"></div>
+        <div class="sede-overlay">
+          <h3>Guadalajara</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <!-- Añade aquí las demás tarjetas: Cancún, Monterrey, etc -->
+      <!-- ... -->
+    </div>
+    <div class="carousel-indicators">
+      <div class="indicator active" data-index="0"></div>
+      <div class="indicator" data-index="1"></div>
+      <div class="indicator" data-index="2"></div>
+      <div class="indicator" data-index="3"></div>
+      <div class="indicator" data-index="4"></div>
+    </div>
+  </div>
+</section>
+<!-- 🔺 FIN CARRUSEL DE SEDES -->
   <section class="image-break">
   </section>
   <section class="contact" id="contacto">
@@ -2160,7 +2226,7 @@ section {
       </span>
      </div>
      <p>
-      Expertos en derecho financiero con más de 15 años de experiencia protegiendo los intereses de nuestros clientes.
+      Expertos en derecho financiero con más de 25 años de experiencia protegiendo los intereses de nuestros clientes.
      </p>
     </div>
     <div class="footer-links">
