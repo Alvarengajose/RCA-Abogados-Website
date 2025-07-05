@@ -1638,7 +1638,8 @@ section {
   width: max-content;
 }
 
-100% {
+
+  100% {
     transform: translateX(-50%);
   }
 }
@@ -1881,52 +1882,104 @@ section {
    </div>
    <section class="image-break">
    </section>
-   <section class="stats-section-horizontal">
-    <div class="stats-horizontal-container">
-     <div class="stat-box" style="background-color:#C5A059;">
-      <h3>
-       25 AÑOS
-      </h3>
-      <p>
-       de experiencia legal
-      </p>
-     </div>
-     <div class="stat-box" style="background-color:#3DACC0;">
-      <h3>
-       2500+
-      </h3>
-      <p>
-       Juicios y arbitrajes
-      </p>
-     </div>
-     <div class="stat-box" style="background-color:#2F2F2F;">
-      <h3>
-       Más de 70 mil
-       <br/>
-       millones de dólares
-      </h3>
-      <p>
-       Ganado para los demandantes
-      </p>
-     </div>
-     <div class="stat-box" style="background-color:#2F2F2F;">
-      <h3>
-       86%
-      </h3>
-      <p>
-       Juicios y arbitrajes ganados
-      </p>
-     </div>
-     <div class="stat-box" style="background-color:#2F2F2F;">
-      <h3>
-       34
-      </h3>
-      <p>
-       Oficinas en 12 países
-      </p>
-     </div>
+   
+<!-- 🔻 SECCIÓN DE ESTADÍSTICAS - OPCIÓN 1 MINIMALISTA 🔻 -->
+<section class="stats-section-minimal">
+  <div class="stats-grid-minimal">
+    <div class="stat-box-minimal">
+      <h3>25 AÑOS</h3>
+      <p>de experiencia legal</p>
     </div>
-   </section>
+    <div class="stat-box-minimal">
+      <h3>2500+</h3>
+      <p>Juicios y arbitrajes</p>
+    </div>
+    <div class="stat-box-minimal">
+      <h3>86%</h3>
+      <p>Juicios y arbitrajes ganados</p>
+    </div>
+    <div class="stat-box-minimal">
+      <h3>50+</h3>
+      <p>Oficinas y colaboradores en todo el pais</p>
+    </div>
+  </div>
+</section>
+
+<style>
+.stats-section-minimal {
+  padding: 100px 5%;
+  background-color: #111;
+}
+
+.stats-grid-minimal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-box-minimal {
+  text-align: center;
+  padding: 50px 30px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.stat-box-minimal:hover {
+  transform: translateY(-10px);
+}
+
+.stat-box-minimal h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #C22033;
+}
+
+.stat-box-minimal p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .stat-box-minimal h3 {
+    font-size: 2rem;
+  }
+  .stat-box-minimal p {
+    font-size: 0.95rem;
+  }
+}
+
+.stats-section-minimal {
+  padding: 100px 5%;
+  background: #111 url('https://i.imgur.com/WRNBRia.jpeg') center center / cover no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.stats-section-minimal::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+
+.stats-grid-minimal {
+  position: relative;
+  z-index: 1;
+}
+</style>
+<!-- 🔺 FIN DE ESTADÍSTICAS OPCIÓN 1 -->
+
    <section class="image-break">
    </section>
    <section class="about mission-vision">
