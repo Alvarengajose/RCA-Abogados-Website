@@ -1619,6 +1619,40 @@ section {
   }
 }
 
+.sedes .section-title h2,
+.sedes .section-title p,
+.sede-overlay h3,
+.sede-info p {
+  color: #ffffff !important;
+}
+
+.sedes-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.sedes-grid {
+  display: flex;
+  gap: 20px;
+  
+  width: max-content;
+}
+
+100% {
+    transform: translateX(-50%);
+  }
+}
+
+.sede-card {
+  flex: 0 0 auto;
+  width: 280px;
+  max-width: 90vw;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
   </style>
  </head>
 
@@ -2034,23 +2068,20 @@ section {
     </div>
    </div>
   </section>
-  <!-- 🔻 CARRUSEL DE SEDES 🔻 -->
+<!-- 🔻 CARRUSEL DE SEDES 🔻 -->
 <section class="sedes" id="sedes">
   <div class="section-title">
     <h2>Nuestras Sedes</h2>
     <p>Presencia global con oficinas estratégicamente ubicadas</p>
   </div>
+
   <div class="sedes-container">
-    <div class="carousel-nav">
-      <button aria-label="Anterior" class="carousel-prev">❮</button>
-      <button aria-label="Siguiente" class="carousel-next">❯</button>
-    </div>
     <div class="sedes-grid">
-      <!-- 🏙️ Tarjetas duplicadas para loop infinito -->
+      <!-- 🔁 Tarjetas duplicadas para loop infinito -->
       <div class="sede-card">
         <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');"></div>
         <div class="sede-overlay">
-          <h3>Cancun</h3>
+          <h3>Cancún</h3>
           <div class="sede-info">
             <p>Torre Reforma, Piso 22</p>
             <p>Horario: 9:00 - 18:00</p>
@@ -2087,15 +2118,48 @@ section {
           </div>
         </div>
       </div>
-      <!-- Añade aquí las demás tarjetas: Cancún, Monterrey, etc -->
-      <!-- ... -->
-    </div>
-    <div class="carousel-indicators">
-      <div class="indicator active" data-index="0"></div>
-      <div class="indicator" data-index="1"></div>
-      <div class="indicator" data-index="2"></div>
-      <div class="indicator" data-index="3"></div>
-      <div class="indicator" data-index="4"></div>
+
+      <!-- 🔁 Duplicadas para efecto loop -->
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');"></div>
+        <div class="sede-overlay">
+          <h3>Cancún</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');"></div>
+        <div class="sede-overlay">
+          <h3>Monterrey</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');"></div>
+        <div class="sede-overlay">
+          <h3>Ciudad de México</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="sede-card">
+        <div class="sede-image" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');"></div>
+        <div class="sede-overlay">
+          <h3>Guadalajara</h3>
+          <div class="sede-info">
+            <p>Torre Reforma, Piso 22</p>
+            <p>Horario: 9:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
