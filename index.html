@@ -123,75 +123,89 @@
         
         /* SECCIÓN HERO */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(10, 26, 58, 0.7), rgba(10, 26, 58, 0.7)), 
-                        url('https://i.imgur.com/ti8DwyN.jpeg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #2F2F2F;
-            padding: 0 20px;
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
         }
-        
+
+        .hero video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        }
+
+        .background-animation {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        }
+
         .hero-content {
-            max-width: 800px;
-        }
-        @media (max-width: 768px) {
-          .hero-content h1 {
-            font-size: 2rem;
-          }
-
-          .hero-content p {
-            font-size: 1rem;
-          }
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 20px;
+        animation: slideFadeIn 1.5s ease-out forwards;
+        opacity: 0;
+        transform: translateY(50px);
         }
 
-        @media (max-width: 480px) {
-          .hero-content h1 {
-            font-size: 1.6rem;
-          }
-
-          .hero-content p {
-            font-size: 0.95rem;
-          }
+        @keyframes slideFadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
         }
 
-        
+        .logo-container {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(6px);
+        }
+
+        .main-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: #C22033;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        }
+
+        .subheading {
+        font-size: 1.3rem;
+        font-weight: 300;
+        color: #eee;
+        letter-spacing: 1px;
+        animation: fadeInText 2s ease-out 1.5s forwards;
+        opacity: 0;
+        }
+
+        @keyframes fadeInText {
+        to {
+            opacity: 1;
+        }
+        }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
+            color: var(--red);
             margin-bottom: 20px;
-            line-height: 1.2;
         }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--red);
-            color: #2F2F2F;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.3s, transform 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .btn:hover {
-            background-color: #b08c4a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
+
         /* SECCIÓN DE SERVICIOS */
         .services {
             padding: 100px 5%;
@@ -1634,11 +1648,13 @@ section {
 .sedes-grid {
   display: flex;
   gap: 20px;
-  
   width: max-content;
 }
 
-
+@keyframes scroll-sedes {
+  0% {
+    transform: translateX(0);
+  }
   100% {
     transform: translateX(-50%);
   }
@@ -1654,17 +1670,25 @@ section {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
 }
+
+@media (max-width: 576px) {
+  .stats-section-minimal {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .stats-grid-minimal {
+    grid-template-columns: 1fr !important;
+  }
+}
   </style>
  </head>
-
-
-
  <body>
   <!-- Header y Navegación -->
   <header>
    <div class="logo">
     <a href="#inicio">
-     <img alt="Logo RCA Abogados" src="https://i.imgur.com/Ecj8BYU.png" style="height:40px; vertical-align:middle; margin-right:10px;"/>
+     <img alt="Logo RCA Abogados" src="https://i.imgur.com/qBdIXcC.png" style="height:100px; vertical-align:middle; margin-right:10px;"/>
     </a>
     RCA
     <span>
@@ -1715,28 +1739,26 @@ section {
    </nav>
   </header>
   <!-- Sección Hero -->
-  <section class="hero-video-bg">
-   <video autoplay="" class="video-bg" loop="" muted="" playsinline="">
-    <source src="https://i.imgur.com/E95dkk1.mp4" type="video/mp4"/>
-    Tu navegador no soporta video HTML5.
-   </video>
-   <div class="hero-overlay">
-    <div class="hero-content">
-     <h1>
-      RCA Abogados
-     </h1>
-     <p>
-      Litigio | Corporativo | Fiscal | Financiero
-     </p>
-     <p>
-        25 AÑOS A TUS SERVICIOS
-     </p>
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://videos.pexels.com/video-files/6943192/6943192-hd_1920_1080_25fps.mp4" type="video/mp4" />
+  </video>
+  <div class="background-animation">
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="logo-container">
+      <h1 class="main-title">RCA Abogados</h1>
+      <p class="subheading">Litigio &nbsp;|&nbsp; Corporativo &nbsp;|&nbsp; Fiscal &nbsp;|&nbsp; Financiero</p>
     </div>
-   </div>
-  </section>
+  </div>
+</div>
+
+
   <!-- Sección Servicios -->
   <section class="services-grid-quinn" id="servicios">
-    <section class="about semblanza">
+   <section class="about semblanza">
     <div class="about-content">
      <h2>
       25 Años de Experiencia
@@ -1882,31 +1904,45 @@ section {
    </div>
    <section class="image-break">
    </section>
-   
-<!-- 🔻 SECCIÓN DE ESTADÍSTICAS - OPCIÓN 1 MINIMALISTA 🔻 -->
-<section class="stats-section-minimal">
-  <div class="stats-grid-minimal">
-    <div class="stat-box-minimal">
-      <h3>25 AÑOS</h3>
-      <p>de experiencia legal</p>
+   <!-- 🔻 SECCIÓN DE ESTADÍSTICAS - OPCIÓN 1 MINIMALISTA 🔻 -->
+   <section class="stats-section-minimal">
+    <div class="stats-grid-minimal">
+     <div class="stat-box-minimal">
+      <h3>
+       25 AÑOS
+      </h3>
+      <p>
+       de experiencia legal
+      </p>
+     </div>
+     <div class="stat-box-minimal">
+      <h3>
+       2500+
+      </h3>
+      <p>
+       Juicios y arbitrajes
+      </p>
+     </div>
+     <div class="stat-box-minimal">
+      <h3>
+       86%
+      </h3>
+      <p>
+       Juicios y arbitrajes ganados
+      </p>
+     </div>
+     <div class="stat-box-minimal">
+      <h3>
+       50+
+      </h3>
+      <p>
+       Oficinas y colaboradores en todo el pais
+      </p>
+     </div>
     </div>
-    <div class="stat-box-minimal">
-      <h3>2500+</h3>
-      <p>Juicios y arbitrajes</p>
-    </div>
-    <div class="stat-box-minimal">
-      <h3>86%</h3>
-      <p>Juicios y arbitrajes ganados</p>
-    </div>
-    <div class="stat-box-minimal">
-      <h3>50+</h3>
-      <p>Oficinas y colaboradores en todo el pais</p>
-    </div>
-  </div>
-</section>
-
-<style>
-.stats-section-minimal {
+   </section>
+   <style>
+    .stats-section-minimal {
   padding: 100px 5%;
   background-color: #111;
 }
@@ -1977,9 +2013,8 @@ section {
   position: relative;
   z-index: 1;
 }
-</style>
-<!-- 🔺 FIN DE ESTADÍSTICAS OPCIÓN 1 -->
-
+   </style>
+   <!-- 🔺 FIN DE ESTADÍSTICAS OPCIÓN 1 -->
    <section class="image-break">
    </section>
    <section class="about mission-vision">
@@ -2121,102 +2156,160 @@ section {
     </div>
    </div>
   </section>
-<!-- 🔻 CARRUSEL DE SEDES 🔻 -->
-<section class="sedes" id="sedes">
-  <div class="section-title">
-    <h2>Nuestras Sedes</h2>
-    <p>Presencia global con oficinas estratégicamente ubicadas</p>
-  </div>
-
-  <div class="sedes-container">
+  <!-- 🔻 CARRUSEL DE SEDES 🔻 -->
+  <section class="sedes" id="sedes">
+   <div class="section-title">
+    <h2>
+     Nuestras Sedes
+    </h2>
+    <p>
+     Presencia global con oficinas estratégicamente ubicadas
+    </p>
+   </div>
+   <div class="sedes-container">
     <div class="sedes-grid">
-      <!-- 🔁 Tarjetas duplicadas para loop infinito -->
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');"></div>
-        <div class="sede-overlay">
-          <h3>Cancún</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+     <!-- 🔁 Tarjetas duplicadas para loop infinito -->
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');">
       </div>
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');"></div>
-        <div class="sede-overlay">
-          <h3>Monterrey</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+      <div class="sede-overlay">
+       <h3>
+        Cancún
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
       </div>
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');"></div>
-        <div class="sede-overlay">
-          <h3>Ciudad de México</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+     </div>
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');">
       </div>
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');"></div>
-        <div class="sede-overlay">
-          <h3>Guadalajara</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+      <div class="sede-overlay">
+       <h3>
+        Monterrey
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
       </div>
-
-      <!-- 🔁 Duplicadas para efecto loop -->
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');"></div>
-        <div class="sede-overlay">
-          <h3>Cancún</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+     </div>
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');">
       </div>
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');"></div>
-        <div class="sede-overlay">
-          <h3>Monterrey</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+      <div class="sede-overlay">
+       <h3>
+        Ciudad de México
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
       </div>
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');"></div>
-        <div class="sede-overlay">
-          <h3>Ciudad de México</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+     </div>
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');">
       </div>
-      <div class="sede-card">
-        <div class="sede-image" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');"></div>
-        <div class="sede-overlay">
-          <h3>Guadalajara</h3>
-          <div class="sede-info">
-            <p>Torre Reforma, Piso 22</p>
-            <p>Horario: 9:00 - 18:00</p>
-          </div>
-        </div>
+      <div class="sede-overlay">
+       <h3>
+        Guadalajara
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
       </div>
+     </div>
+     <!-- 🔁 Duplicadas para efecto loop -->
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/vug3Kg9.jpeg');">
+      </div>
+      <div class="sede-overlay">
+       <h3>
+        Cancún
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/Vr7JJOi.png');">
+      </div>
+      <div class="sede-overlay">
+       <h3>
+        Monterrey
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/ti8DwyN.jpeg');">
+      </div>
+      <div class="sede-overlay">
+       <h3>
+        Ciudad de México
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="sede-card">
+      <div class="sede-image" style="background-image: url('https://i.imgur.com/el7bsFy.jpeg');">
+      </div>
+      <div class="sede-overlay">
+       <h3>
+        Guadalajara
+       </h3>
+       <div class="sede-info">
+        <p>
+         Torre Reforma, Piso 22
+        </p>
+        <p>
+         Horario: 9:00 - 18:00
+        </p>
+       </div>
+      </div>
+     </div>
     </div>
-  </div>
-</section>
-<!-- 🔺 FIN CARRUSEL DE SEDES -->
+   </div>
+  </section>
+  <!-- 🔺 FIN CARRUSEL DE SEDES -->
   <section class="image-break">
   </section>
   <section class="contact" id="contacto">
@@ -2240,9 +2333,8 @@ section {
        </h3>
        <p>
         Calz. Gral. Mariano Escobedo 353A-902, Polanco
-        <br>
-         Miguel Hidalgo, 11560 Ciudad de México,CDMX
-        </br>
+        <br/>
+        Miguel Hidalgo, 11560 Ciudad de México,CDMX
        </p>
       </div>
      </div>
