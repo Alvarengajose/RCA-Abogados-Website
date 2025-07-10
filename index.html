@@ -1776,16 +1776,46 @@ section {
   <!-- Sección Hero -->
 <div class="hero">
   <video autoplay muted loop playsinline>
-    <source src="https://videos.pexels.com/video-files/32942757/14040195_1920_1080_30fps.mp4" type="video/mp4" />
+    <source src="https://videos.pexels.com/video-files/32942757/14040195_1920_1080_30fps.mp4  " type="video/mp4" />
   </video>
   <div class="background-animation">
     <div class="circle"></div>
     <div class="circle"></div>
   </div>
   <div class="hero-content">
-    <div class="logo-container">
-      <h1 class="main-title">RCA Abogados</h1>
-      <p class="subheading">Litigio &nbsp;|&nbsp; Corporativo &nbsp;|&nbsp; Fiscal &nbsp;|&nbsp; Financiero</p>
+    <div class="logo-container" style="background-color: rgba(0,0,0,0.7); box-shadow: 0 0 40px rgba(0,0,0,0.5);">
+      <div class="parallax-title-container"></div>
+        <h1 class="main-title" style="font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif; font-size: 4.5rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 0;">
+          <span style="display:inline-block; font-size:2.2rem; color:#fff; vertical-align:middle; animation: slideFadeIn 2.5s ease-out forwards;">R C A</span>
+          <br>
+          <span style="display:inline-block; font-size:5.5rem; color:#C22033; text-transform:uppercase; font-family: 'Times New Roman', Times, serif; letter-spacing:2px; line-height:1.1; animation: slideFadeIn 1.5s ease-out forwards;">ABOGADOS</span>
+        </h1>
+      </div>
+      <style>
+        .hero video {
+          will-change: transform;
+        }
+        .parallax-title-container {
+          position: relative;
+          z-index: 2;
+        }
+      </style>
+      <script>
+        // Parallax efecto para el video de fondo HERO (compatible cross-browser)
+        (function() {
+          const video = document.querySelector('.hero video');
+          function parallaxHero() {
+        const scrolled = window.scrollY;
+        // Solo aplica el efecto si el video está visible
+        if (video) {
+          // Parallax suave: mueve el video más lento que el scroll
+          video.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+          }
+          window.addEventListener('scroll', parallaxHero, { passive: true });
+        })();
+      </script>
+      <p class="subheading" style="font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif; font-size: 1.5rem;">Fiscal &nbsp;|&nbsp; Corporativo &nbsp;|&nbsp; Litigio &nbsp;|&nbsp; Financiero</p>
     </div>
   </div>
 </div>
@@ -1795,15 +1825,18 @@ section {
   <section class="services-grid-quinn" id="servicios">
    <section class="about semblanza">
     <div class="about-content">
-     <h2>
-      25 Años de Experiencia
-     </h2>
+    <h2>
+     <span style="color:#C22033; font-size:3.5rem; font-weight:900; letter-spacing:1px;">25</span> Años de Experiencia
+    </h2>
      <p>
       RCA conmemora su 25 aniversario prestando servicios con resultados eficaces y altos estándares de calidad. La Firma se ha especializado en áreas clave del derecho como financiero, inmobiliario, transporte, energía, alimentos, automotriz y más. Se distingue por crear soluciones vanguardistas e integrales con un fuerte compromiso ético y social.
      </p>
      <p>
-      “Durante los 25 años de experiencia, en diversas ocasiones hemos representado a empresas en asuntos relevantes. Con nuestro equipo, hoy más que nunca estamos capacitados para tomar estos casos con responsabilidad y excelencia”, precisó el Dr. Julio César Rojas de la Cruz, Socio Director.
+      «Durante estos 25 años de experiencia, en diversas ocasiones hemos representado a empresas en asuntos relevantes. Con nuestro equipo, hoy más que nunca, estamos capacitados para asumir estos casos con responsabilidad y excelencia».
      </p>
+     <p>
+      <strong>Dr. Julio César Rojas de la Cruz</strong>, Socio Director.
+      </p>
     </div>
    </section>
    <div class="section-title">
